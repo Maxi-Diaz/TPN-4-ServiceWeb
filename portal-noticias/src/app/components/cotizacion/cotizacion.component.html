@@ -1,0 +1,94 @@
+<main class="row">
+    <section class="col-md-8 d-none d-sm-block">
+        <table class="table" cellpadding="5">
+            <thead>
+                <h5 class="text-center titulo-con p-2">Conversor De Divisas</h5>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col"> <img src="../../../assets/img/argentina.png" width="15" height="15" alt=""> ARG</th>
+                    <th scope="col"> <img src="../../../assets/img/estados-unidos.png" width="15" height="15" alt=""> USD</th>
+                    <th scope="col"> <img src="../../../assets/img/chile.png" width="15" height="15" alt=""> CLP</th>
+                    <th scope="col"> <img src="../../../assets/img/union-europea.png" width="15" height="15" alt=""> EUR</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="bordes">
+                    <td rowspan="2"><img src="../../../assets/img/argentina.png" width="15" height="15" alt=""> ARG<br />Inverse
+                    </td>
+                    <td>1.000000</td>
+                    <td>0,01520</td>
+                    <td>13,00</td>
+                    <td>0,0140</td>
+                </tr>
+                <tr class="bordes">
+                    <td>1.000000</td>
+                    <td>65,94</td>
+                    <td>0,0769</td>
+                    <td>71,63</td>
+                </tr>
+                <tr class="bordes">
+                    <td rowspan="2"><img src="../../../assets/img/estados-unidos.png" width="15" height="15" alt="">
+                        USD<br />Inverse</td>
+                    <td>0,01520</td>
+                    <td>1.000000</td>
+                    <td>857,10</td>
+                    <td>1,09</td>
+                </tr>
+                <tr class="bordes">
+                    <td>65,94</td>
+                    <td>1.000000</td>
+                    <td>0,0012</td>
+                    <td>0,92</td>
+                </tr>
+                <tr class="bordes">
+                    <td rowspan="2"><img src="../../../assets/img/union-europea.png" width="15" height="15" alt=""> EUR<br />Inverse
+                    </td>
+                    <td>0,0140</td>
+                    <td>1,09</td>
+                    <td>931,11</td>
+                    <td>1.00000</td>
+                </tr>
+                <tr class="bordes">
+                    <td>71,63</td>
+                    <td>0,92</td>
+                    <td>0,0011</td>
+                    <td>1.00000</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <aside class="col-md-4 col-sm-12">
+        <div class="row bg-primary justify-content-center rounded">
+            <h5 class="text-center titulo-con col-md-12 p-2">Conversor De Divisas</h5>
+            <form>
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Cantidad</label>
+                    <input type="number" class="form-control text-ri" placeholder="Cantidad">
+                </div>
+                <div class="form-group">
+                    <label for="inputState">De</label>
+                    <select id="inputState" class="form-control">
+                        <option selected>US Dolar</option>
+                        <option>EURO</option>
+                        <option>Pesos Argentinos</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="inputState">A</label>
+                    <select id="inputState" class="form-control">
+                        <option selected>Pesos Argentinos</option>
+                        <option>EURO</option>
+                        <option>US Dolar</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="number" class="form-control" readonly>
+                </div>
+                <div class="form-group">
+                    <button type="button" class="btn col-sm-12 btn-warning rounded">Convertir <i
+                            class="far fa-share-square"></i></button>
+                </div>
+            </form>
+        </div>
+    </aside>
+</main>
