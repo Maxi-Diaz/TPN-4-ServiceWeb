@@ -1,53 +1,24 @@
 <main class="row">
-    <section class="col-md-9">
-        <h1 class="text-center mb-4">Ultimas Noticias</h1>
-        <div class="row row-cols-1 row-cols-md-2">
-          <div class="col mb-6">
-            <div class="card">
-              <img src="../../../assets/img/noti1.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5> <span class="badge-danger">Coronavirus</span></h5>
-                <p class="card-text">6 buenas noticias sobre el nuevo virus covid-19</p>
-              </div>
-            </div>
-          </div>
-          <div class="col mb-6">
-            <div class="card">
-              <img src="../../../assets/img/noti2.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5><span class="badge-danger">E.E.U.U. - Tornado</span></h5>
-                <p class="card-text">Decenas de tornados dejan muerte y destrucción en EE.UU. y otras
-                  noticias.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col mb-6">
-            <div class="card">
-              <img src="../../../assets/img/noti3.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5><span class="badge-danger">Florida</span></h5>
-                <p class="card-text">Los cruceros Zaandam y Rotterdam atracaron en la Florida y cerca de
-                  1.200 personas podrán desembarcar.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col mb-6">
-            <div class="card">
-              <img src="../../../assets/img/noti4.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5><span class="badge-danger">Francia - Covid-19</span></h5>
-                <p class="card-text">Francia busca cambiar reglas de confinamiento para ayudar a
-                  personas autistas.</p>
-              </div>
-            </div>
+  <h1 class="col-lg-12 text-center mb-4 text-white-50 bg-dark">Deportes - Internacional</h1>
+  <section class="col-md-9">
+    <h3 class="text-center mb-4">Ultimas noticias</h3>
+    <div class="row row-col-1 row-cols-md-2">
+      <div class="col mb-6" *ngFor="let item of list_noticias">
+        <div class="card">
+          <img src="{{item.img}}" class="card-img-top" alt="imagen-noti" width="250" height="200">
+          <div class="card-body">
+            <h5> <span class="badge-danger">{{item.tit}}</span></h5>
+            <p class="card-text">{{item.des}}</p>
           </div>
         </div>
-      </section>
-    <aside class="col-md-3 d-none d-md-block mt-5">
-        <div>
-          <img src="../../../assets/img/Banner.jpg" class="banner-img card-img-top" alt="banner">
-          <br />
-          <img src="../../../assets/img/banner2.jpg" alt="banner2" class="banner-img card-img-top">
-        </div>
-      </aside>
+      </div>
+    </div>
+  </section>
+  <aside class="col-md-3 d-none d-md-block mt-5">
+    <div>
+      <img src="../../../assets/img/Banner.jpg" class="banner-img card-img-top" alt="banner">
+      <br />
+      <img src="../../../assets/img/banner2.jpg" alt="banner2" class="banner-img card-img-top">
+    </div>
+  </aside>
 </main>

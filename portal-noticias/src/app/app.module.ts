@@ -9,6 +9,8 @@ import { EstadisticasComponent } from './components/estadisticas/estadisticas.co
 import { NoticiasComponent } from './components/noticias/noticias.component';
 import { DeportesComponent } from './components/deportes/deportes.component';
 import { CotizacionComponent } from './components/cotizacion/cotizacion.component';
+import { HttpClientModule } from '@angular/common/http'
+import { FormsModule } from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { CotizacionComponent } from './components/cotizacion/cotizacion.componen
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
