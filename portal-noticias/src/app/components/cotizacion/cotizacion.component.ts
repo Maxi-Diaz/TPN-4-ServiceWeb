@@ -1,7 +1,6 @@
-import { Conversor } from './../../models/conversor';
 import { DivisaService } from './../../services/divisa.service';
+import { Conversor } from './../../models/conversor';
 import { Component, OnInit } from '@angular/core';
-
 
 @Component({
   selector: 'app-cotizacion',
@@ -12,10 +11,10 @@ export class CotizacionComponent implements OnInit {
   desde: string;
   para: string;
   valor: number;
+  valorConvertido: string;
+  mostrar: boolean = false;
   conversor: Conversor;
   list_valores: Array<Conversor>;
-  valorConvertido: number;
-  listado: Array<any>;
 
   constructor(private divisaService: DivisaService) {
     this.conversor = new Conversor();
@@ -25,20 +24,13 @@ export class CotizacionComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  /**
-   * conversor de monedas
-   */
-  public convertir() {
-    this.conversor.desde = this.desde;
-    this.conversor.para = this.para;
-    this.conversor.valor = this.valor;
-    this.divisaService.getConversor(this.conversor.desde, this.conversor.para, this.conversor.valor).subscribe(
-      (result) => {
-        this.conversor.total = result;
-        console.log(this.conversor.desde, this.conversor.para, this.conversor.valor, this.conversor.total);
-
-      }
-    )
+  public Convercion(){
+    this.divisaService.getConversor(this.desde,this.para,this.valor).subscribe( 
+      (result) => {         
+        this.valorConvertido=result['result'];
+        console.log(this.valorConvertido);
+        this.mostrar = true;
+       }, 
+       error => { alert("Error en la petición"); } )
   }
-
 }

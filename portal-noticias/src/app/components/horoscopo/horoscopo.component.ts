@@ -8,9 +8,10 @@ import { Horoscopo } from 'src/app/models/horoscopo';
   styleUrls: ['./horoscopo.component.css']
 })
 export class HoroscopoComponent implements OnInit {
-
+  signo: string;
   horoscopo: Horoscopo;
   list_horoscopo: Array<Horoscopo>;
+  horoscopos: Array<any>;
 
   constructor(private horoscopoService: HoroscopoService) { 
     this.horoscopo = new Horoscopo();
@@ -22,15 +23,11 @@ export class HoroscopoComponent implements OnInit {
   }
 
   public cargarHoroscopo(){
-    this.horoscopoService.lista_horoscopo().subscribe(
+    let signo = "Cancer"
+    this.horoscopoService.lista_horoscopo(signo).subscribe(
       (result) =>{
-        this.list_horoscopo = new Array<Horoscopo>();
-        result['arts'].forEach(element => {
-          this.horoscopo = new Horoscopo();
-          Object.assign(this.horoscopo,element);
-          this.list_horoscopo.push(this.horoscopo)
-          console.log(this.list_horoscopo);
-        });
+        this.horoscopos = result;
+        console.log(this.horoscopos);
       },
       error => { alert("Error en la peticion"); }
     )

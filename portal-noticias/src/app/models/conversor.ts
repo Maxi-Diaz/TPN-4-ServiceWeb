@@ -1,14 +1,14 @@
 export class Conversor {
 
     desde: string;
-    para: string;
+    a: string;
     valor:number;
-    total: number
+    resultado: number
 
-    conversor(desde?: string, para?:string, valor?:number, total?: number){
+    conversor(desde?: string, a?:string, valor?:number, resultado?: number){
         this.desde = desde;
-        this.para = para;
+        this.a = a;
         this.valor = valor;
-        this.total = total;
+        this.resultado = resultado;
     }
 }

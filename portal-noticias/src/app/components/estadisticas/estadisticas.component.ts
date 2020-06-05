@@ -18,12 +18,16 @@ export class EstadisticasComponent implements OnInit {
   fallecidosV: number;
   informe: Informe;
   paises: Array<Informe>;
-  list_informes: Array<any>;
+  list_paises: Array<any>;
+  list_informe = ["Argentina" , "Chile", "Francia", "Uruguay"];
 
   constructor(private informeService: EstadisticaService) {
     this.informe = new Informe();
     this.paises = new Array<Informe>();
-    this.obtenerDatosPais();
+    setTimeout(() => {
+      this.tabla_datos();
+    }, 2000);
+    
   }
 
   ngOnInit(): void {
@@ -60,29 +64,55 @@ export class EstadisticasComponent implements OnInit {
     let fecha = "2020-05-28";
     this.informeService.getPais(this.pais_seleccionado, fecha).subscribe(
       (result) => {
-        this.list_informes = result;
-
-        this.informe.pais = this.list_informes[0].country;
-        this.informe.confirmados = this.list_informes[0].provinces[0].confirmed;
-        this.informe.recuperados = this.list_informes[0].provinces[0].recovered;
-        this.informe.fallecidos = this.list_informes[0].provinces[0].deaths;
-        this.paisV = this.informe.pais;
-        this.confirmadosV = this.informe.confirmados
-        this.recuperadosV = this.informe.recuperados
-        this.fallecidosV = this.informe.fallecidos
-        this.guardarPais();
+        this.list_paises = result;
+        this.paisV = this.list_paises[0]?.country
+        this.confirmadosV = this.list_paises[0]?.provinces[0]?.confirmed;
+        this.recuperadosV = this.list_paises[0]?.provinces[0]?.recovered;
+        this.fallecidosV = this.list_paises[0]?.provinces[0]?.deaths;
       },
       (error) => {
-        console.log(error);
+        console.log(alert("Error en la petición"));
       }
     )
   }
 
-  /**
-   * guardarPais
-   */
-  public guardarPais() {
-    this.paises.push(this.informe);
-    this.informe = new Informe();
+  public tabla_datos() {
+    let fecha = "2020-05-28";
+    for (var i = 0; i < this.list_informe.length; i++) {
+      this.informeService.getPais(this.list_informe[i], fecha).subscribe(
+        (result) => {
+          this.list_paises = result;
+          this.informe.pais = this.list_paises[0]?.country
+          this.informe.confirmados = this.list_paises[0]?.provinces[0]?.confirmed;
+          this.informe.recuperados = this.list_paises[0]?.provinces[0]?.recovered;
+          this.informe.fallecidos = this.list_paises[0]?.provinces[0]?.deaths;
+          this.paises.push(this.informe);
+
+          this.informe = new Informe();
+        },
+        (error) => {
+          console.log(alert("Error en la petición"));
+        }
+      )
+    }
   }
 }
+/**
+    this.cargarTabla();
+    let fecha = "2020-05-28";
+    for(var i=0;i<this.paises.length; i++){
+      this.informeService.getPais(this.paises.pais[i], fecha).subscribe(
+        (result) => {
+          this.list_paises = result;
+          this.informe.pais = this.list_paises[0]?.country
+          this.informe.confirmados = this.list_paises[0]?.provinces[0]?.confirmed;
+          this.informe.recuperados = this.list_paises[0]?.provinces[0]?.recovered;
+          this.informe.fallecidos = this.list_paises[0]?.provinces[0]?.deaths;
+          console.log( this.informe.pais, this.informe.confirmados, this.informe.recuperados, this.informe.fallecidos)
+        },
+        (error) => {
+          console.log(error);
+        }
+      )
+    }
+ **/
