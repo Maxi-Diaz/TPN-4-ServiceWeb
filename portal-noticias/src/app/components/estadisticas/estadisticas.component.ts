@@ -19,15 +19,11 @@ export class EstadisticasComponent implements OnInit {
   informe: Informe;
   paises: Array<Informe>;
   list_paises: Array<any>;
-  list_informe = ["Argentina" , "Chile", "Francia", "Uruguay"];
 
   constructor(private informeService: EstadisticaService) {
     this.informe = new Informe();
     this.paises = new Array<Informe>();
-    setTimeout(() => {
-      this.tabla_datos();
-    }, 2000);
-    
+    this.cargarTabla();
   }
 
   ngOnInit(): void {
@@ -76,43 +72,26 @@ export class EstadisticasComponent implements OnInit {
     )
   }
 
-  public tabla_datos() {
-    let fecha = "2020-05-28";
-    for (var i = 0; i < this.list_informe.length; i++) {
-      this.informeService.getPais(this.list_informe[i], fecha).subscribe(
-        (result) => {
-          this.list_paises = result;
-          this.informe.pais = this.list_paises[0]?.country
-          this.informe.confirmados = this.list_paises[0]?.provinces[0]?.confirmed;
-          this.informe.recuperados = this.list_paises[0]?.provinces[0]?.recovered;
-          this.informe.fallecidos = this.list_paises[0]?.provinces[0]?.deaths;
+  /**
+   * cargarTabla
+   */
+  public cargarTabla() {
+    this.informeService.getPaises().subscribe(
+      (result) => {
+        this.paises = new Array<Informe>();
+        result.forEach(element => {
+          this.informe.pais = element['Country_text']
+          this.informe.confirmados = element['Total Cases_text'];
+          this.informe.recuperados = element['Total Recovered_text']
+          this.informe.fallecidos = element['Total Deaths_text'];
           this.paises.push(this.informe);
-
           this.informe = new Informe();
-        },
-        (error) => {
-          console.log(alert("Error en la petición"));
-        }
-      )
-    }
+        });
+      },
+      (error) => {
+        console.log(alert("Error en la petición"));
+      }
+    )
   }
+
 }
-/**
-    this.cargarTabla();
-    let fecha = "2020-05-28";
-    for(var i=0;i<this.paises.length; i++){
-      this.informeService.getPais(this.paises.pais[i], fecha).subscribe(
-        (result) => {
-          this.list_paises = result;
-          this.informe.pais = this.list_paises[0]?.country
-          this.informe.confirmados = this.list_paises[0]?.provinces[0]?.confirmed;
-          this.informe.recuperados = this.list_paises[0]?.provinces[0]?.recovered;
-          this.informe.fallecidos = this.list_paises[0]?.provinces[0]?.deaths;
-          console.log( this.informe.pais, this.informe.confirmados, this.informe.recuperados, this.informe.fallecidos)
-        },
-        (error) => {
-          console.log(error);
-        }
-      )
-    }
- **/

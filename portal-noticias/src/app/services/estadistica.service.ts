@@ -24,4 +24,15 @@ export class EstadisticaService {
     return this._http.get("https://covid-19-data.p.rapidapi.com/report/country/name", httpOptions);
   }
 
+  /* Tengo que utilizar otra rest api para llenar la tabla en la otro no me da acceso*/
+  public getPaises(): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'X-Rapidapi-Host': 'covid-19-tracking.p.rapidapi.com',
+        'X-Rapidapi-Key': '80ba7e86e3msh696e6bf84bb395ap142a66jsn8185bd0ab47e',
+      }),
+    };
+    return this._http.get("https://covid-19-tracking.p.rapidapi.com/v1", httpOptions);
+  }
+
 }

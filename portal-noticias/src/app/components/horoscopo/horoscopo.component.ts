@@ -23,11 +23,15 @@ export class HoroscopoComponent implements OnInit {
   }
 
   public cargarHoroscopo(){
-    let signo = "Cancer"
+    let signo = "taurus"
     this.horoscopoService.lista_horoscopo(signo).subscribe(
       (result) =>{
         this.horoscopos = result;
-        console.log(this.horoscopos);
+        this.horoscopo.nombre = this.horoscopos[0]?.sign[0]?.name;
+        this.horoscopo.fecha = this.horoscopos[0]?.sign[0]?.birthday;
+        this.horoscopo.descripcion = this.horoscopos[0]?.result[0]?.description;
+        this.list_horoscopo.push(this.horoscopo)
+        console.log(this.list_horoscopo);
       },
       error => { alert("Error en la peticion"); }
     )
