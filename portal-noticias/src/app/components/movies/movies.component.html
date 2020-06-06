@@ -1,13 +1,52 @@
-<section>
-    <div>
-        <h2>BUSCADOR DE PELICULAS </h2>
-        <input type="text" id="peli" [(ngModel)]="pelicula">
-        <button type="button" (click)="obtenerPelicula()">Buscar</button>
-    </div>
-    <div>
-        <div></div>
-        <div> <img src="" alt="poster"></div>
-        <div>rating</div>
-        <div>descripcion</div>
-    </div>
-</section>
+<main class="row bg-dark">
+    <h2 class=" col-12 text-white-50 bg-info text-center"> UN MUNDO DE PELICULAS </h2>
+    <section class="row container m-auto p-3 bg-dark border-bottom">
+        <div class="col-md-4 col-sm-6 col-6" *ngFor="let item of peliculas; index as i">
+            <div class="media" *ngIf="i == peli0">
+                <img src="{{item.poster}}" width="290" alt="banner">
+            </div>
+            <div class="media" *ngIf="i == peli1">
+                <img src="{{item.poster}}" width="290" alt="banner">
+            </div>
+            <div class="media" *ngIf="i == peli2">
+                <img src="{{item.poster}}" width="290" alt="banner">
+            </div>
+        </div>
+    </section>
+    <section class="col-md-9 mt-3 bg-dark">
+        <div>
+            <h2 class="text-white-50 bg-info text-center"> BUSCADOR DE PELICULAS </h2>
+            <div>
+                <input type="text" id="peli" [(ngModel)]="pelicula" class="col-lg-8">
+                <button type="button" (click)="obtenerPelicula()" class="col-lg-3 ml-4 btn btn-info rounded">Buscar</button>
+            </div>
+        </div>
+        <div class="mt-3" *ngIf="imagen">
+            <img src="../../../assets/img/tenor.gif" alt="" width="700" height="700">
+        </div>
+        <div class="m-auto" *ngIf="mostrar">
+            <div class="mt-3 bg-info">
+                <h2 class="text-white-50 text-center">{{this.movie.title}}</h2>
+            </div>
+            <div class="col-lg-10 card-body m-auto border border-info rounded"> <img src="{{this.movie.poster}}" alt="poster" width="500"></div>
+            <div class="bg-info col-lg-6 m-auto rounded">
+                <h4 class="text-white-50 text-center">Rating: {{this.movie.rating}}</h4>
+                <h4 class="text-white-50 text-center">Año: {{this.movie.year}}</h4>
+                <h4 class="text-white-50 text-center">Durac&iacute;on: {{this.movie.length}}</h4>
+            </div>
+            <div>
+                <h3 class="text-white-50"> Descripc&iacute;on: </h3>
+                <p class="text-white-50">{{this.movie.plot}}</p>
+            </div>
+        </div>
+    </section>
+    <aside class="col-md-3 d-none d-md-block mt-3 bg-dark">
+        <div class="p-2" *ngFor="let item of peliculas">
+            <div class="border border-info rounded mt-2">
+                <img src="{{item.poster}}" alt="banner" width="190" height="220">
+                <p class="text-white text-center bg-info m-0">{{item.title}}</p>
+            </div>
+        </div>
+        
+    </aside>
+</main>

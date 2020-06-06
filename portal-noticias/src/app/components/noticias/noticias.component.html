@@ -1,10 +1,10 @@
 <main class="row">
   <h1 class="col-lg-12 text-center mb-4 text-white-50 bg-dark">Deportes - Internacional</h1>
   <section class="col-md-9">
-    <h2 class="text-center text-info mb-4">Ultim&aacute;s notic&iacute;as</h2>
-    <div class="row row-col-1 row-cols-md-2">
+    <h2 class="text-center text-white-50 mb-4 bg-info">Ultim&aacute;s notic&iacute;as</h2>
+    <div class="row row-col-1 row-cols-md-2 mt-1">
       <div class="col mb-6" *ngFor="let item of list_noticias">
-        <div class="card">
+        <div class="card bg-light">
           <img src="{{item.img}}" class="card-img-top" alt="imagen-noti" width="250" height="200">
           <div class="card-body">
             <h5> <span class="badge-danger">{{item.tit}}</span></h5>
