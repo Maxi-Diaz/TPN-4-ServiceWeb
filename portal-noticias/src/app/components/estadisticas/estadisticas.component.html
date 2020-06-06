@@ -1,11 +1,11 @@
 <main class="row">
     <section class="col-md-12 m-2">
         <h2 class="text-center m-4 text-white-50 bg-dark">Estadísticas Mundial del covid-19</h2>
-        <div class="border border-info mg-form col-lg-9 m-auto">
-            <h3 class="text-center p-2 card-noti text-white-50 bg-dark">Estadísticas</h3>
-            <div class="center-form m-auto">
+        <div class="border border-info mg-form col-lg-6 m-auto">
+            <h3 class="text-center p-2 card-header text-info bg-light">Estadísticas</h3>
+            <div class="center-form m-auto bg-light">
                 <form class="p-3">
-                    <label for="pais_seleccionado">Selecc&iacute;onar un Pa&iacute;s</label>
+                    <label class="text-primary" for="pais_seleccionado">Selecc&iacute;onar un Pa&iacute;s</label>
                     <select class="form-control p-2" name="pais_seleccionado" id="pais_seleccionado"
                         [(ngModel)]="pais_seleccionado">
                         <option>Argentina</option>
@@ -20,17 +20,16 @@
 
                     <div class="form-check p-3 ml-1">
                         <input class="form-check-input" type="checkbox" (change)="checked($event)">
-                        Casos confirmados
-
+                        <p class="text-primary"> Casos confirmados</p>
                     </div>
                     <div class="form-check p-3 ml-1">
                         <input class="form-check-input" type="checkbox" (change)="checked1($event)">
-                        Curados
+                        <p class="text-primary">Curados</p> 
 
                     </div>
                     <div class="form-check p-3 ml-1">
                         <input class="form-check-input" type="checkbox" (change)="checked2($event)">
-                        Fallecidos
+                        <p class="text-primary">Fallecidos</p> 
 
                     </div>
                     <button type="button" class="btn btn-outline-primary col-md-12"
@@ -46,7 +45,7 @@
         </div>
     </section>
     <section class="row m-auto col-lg-10">
-        <table class="table text-center border border-dark mt-3 mb-3">
+        <table class="table table-hover text-center border border-dark mt-3 mb-3">
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">Ubicacion</th>
