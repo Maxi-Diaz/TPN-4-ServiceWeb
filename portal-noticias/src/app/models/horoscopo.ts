@@ -1,14 +1,12 @@
 export class Horoscopo {
-    nombre: string;
-    descripcion: string;
-    fecha: string;
-    tipo: string;
+    name: string;
+    start_date: Date;
+    end_date: Date;
 
-    horoscopo(nombre?: string, descripcion?: string, fecha?: string, tipo?: string){
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.fecha = fecha;
-        this.tipo = tipo;
+    horoscopo( name?: string, start_date?: Date, end_date?: Date) {
+        this.name = name;
+        this.start_date = start_date;
+        this.end_date = end_date;
     }
 
 }

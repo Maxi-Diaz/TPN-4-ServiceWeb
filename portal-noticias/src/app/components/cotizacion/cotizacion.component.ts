@@ -41,6 +41,10 @@ export class CotizacionComponent implements OnInit {
   /**
    * cargarTabla
    */
+  /**
+   * No puedo cargar la tabla me tira un error Error 429 Too Many Requests.
+   * es por inviar muchas peticiones
+   */
   public cargarTabla() {
     this.lista_Paises;
     for (var i = 0; i < this.lista_Paises.length; i++) {

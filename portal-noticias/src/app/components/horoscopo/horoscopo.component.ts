@@ -8,32 +8,45 @@ import { Horoscopo } from 'src/app/models/horoscopo';
   styleUrls: ['./horoscopo.component.css']
 })
 export class HoroscopoComponent implements OnInit {
-  signo: string;
+  valor0= 0;
+  valor1= 1;
+  valor2= 2;
+  valor3= 3;
+  valor4= 4;
+  valor5= 5;
+  valor6= 6;
+  valor7= 7;
+  valor8= 8;
+  valor9= 9;
+  valor10= 10;
+  valor11= 11;
+  signo: number;
   horoscopo: Horoscopo;
-  list_horoscopo: Array<Horoscopo>;
-  horoscopos: Array<any>;
+  horoscopos: Array<Horoscopo>;
 
   constructor(private horoscopoService: HoroscopoService) { 
     this.horoscopo = new Horoscopo();
-    this.list_horoscopo = new Array<Horoscopo>();
+    this.horoscopos = new Array<Horoscopo>();
     this.cargarHoroscopo();
   }
 
   ngOnInit(): void {
   }
 
-  public cargarHoroscopo(){
-    let signo = "taurus"
-    this.horoscopoService.lista_horoscopo(signo).subscribe(
-      (result) =>{
-        this.horoscopos = result;
-        this.horoscopo.nombre = this.horoscopos[0]?.sign[0]?.name;
-        this.horoscopo.fecha = this.horoscopos[0]?.sign[0]?.birthday;
-        this.horoscopo.descripcion = this.horoscopos[0]?.result[0]?.description;
-        this.list_horoscopo.push(this.horoscopo)
-        console.log(this.list_horoscopo);
-      },
-      error => { alert("Error en la peticion"); }
+  cargarHoroscopo(){
+    this.horoscopoService.lista_horoscopo().subscribe(
+      (result) => {
+        this.horoscopos = new Array<Horoscopo>();
+        result.forEach(element => {
+          this.horoscopo = new Horoscopo();
+          Object.assign(this.horoscopo, element);
+          this.horoscopos.push(this.horoscopo);
+        });
+        console.log(this.horoscopos);
+        },
+      (error) => {
+        alert("Error en la Peticion");
+      }
     )
   }
 

@@ -1,198 +1,192 @@
 <main class="row">
     <section class="row container m-auto p-3">
-        <div class="col-md-4 col-sm-6 col-6">
-            <div class="media">
-                <img src="../../../assets/img/Aries.png" width="90" height="90" alt="...">
-                <div class="media-body">
-                    <div class="alert alert-primary" role="alert">
-                        <h5>Aries</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 col-sm-6 col-6">
-            <div class="media">
-                <img src="../../../assets/img/Tauro.png" width="90" height="90" alt="...">
-                <div class="media-body">
-                    <div class="alert alert-primary" role="alert">
-                        <h5>Tauro</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 col-sm-6 col-6">
-            <div class="media">
-                <img src="../../../assets/img/Geminis.png" width="90" height="90" alt="...">
-                <div class="media-body">
-                    <div class="alert alert-primary" role="alert">
-                        <h5>Geminis</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 col-sm-6 col-6">
-            <div class="media">
-                <img src="../../../assets/img/Cancer.png" width="90" height="90" alt="...">
-                <div class="media-body">
-                    <div class="alert alert-primary" role="alert">
-                        <h5>Cancer</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 col-sm-6 col-6">
-            <div class="media">
-                <img src="../../../assets/img/Leo.png" width="90" height="90" alt="...">
-                <div class="media-body">
-                    <div class="alert alert-primary" role="alert">
-                        <h5>Leo</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 col-sm-6 col-6">
-            <div class="media">
-                <img src="../../../assets/img/Virgo.png" width="90" height="90" alt="...">
-                <div class="media-body">
-                    <div class="alert alert-primary" role="alert">
-                        <h5>Virgo</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 col-sm-6 col-6">
-            <div class="media">
-                <img src="../../../assets/img/Libra.png" width="90" height="90" alt="...">
-                <div class="media-body">
-                    <div class="alert alert-primary" role="alert">
-                        <h5>Libra</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 col-sm-6 col-6">
-            <div class="media">
-                <img src="../../../assets/img/Escorpion.png" width="90" height="90" alt="...">
-                <div class="media-body">
-                    <div class="alert alert-primary" role="alert">
-                        <h5>Escorpio</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 col-sm-6 col-6">
-            <div class="media">
-                <img src="../../../assets/img/Sagitario.png" width="90" height="90" alt="...">
-                <div class="media-body">
-                    <div class="alert alert-primary" role="alert">
-                        <h5>Sagitario</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 col-sm-6 col-6">
-            <div class="media">
+        <div class="col-md-4 col-sm-6 col-6" *ngFor="let item of horoscopos; index as i">
+            <div class="media" *ngIf="i == valor0">
                 <img src="../../../assets/img/Capricornio.png" width="90" height="90" alt="...">
                 <div class="media-body">
                     <div class="alert alert-primary" role="alert">
-                        <h5>Capricornio</h5>
+                        <h5>{{item.name}}</h5>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-4 col-sm-6 col-6">
-            <div class="media">
+            <div class="media" *ngIf="i == valor1">
                 <img src="../../../assets/img/Acuario.png" width="90" height="90" alt="...">
                 <div class="media-body">
                     <div class="alert alert-primary" role="alert">
-                        <h5>Acuario</h5>
+                        <h5>{{item.name}}</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="media" *ngIf="i == valor2">
+                <img src="../../../assets/img/Piscis.png" width="90" height="90" alt="...">
+                <div class="media-body">
+                    <div class="alert alert-primary" role="alert">
+                        <h5>{{item.name}}</h5>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-4 col-sm-6 col-6">
-            <div class="media">
-                <img src="../../../assets/img/Piscis.png" width="90" height="90" alt="...">
+        <div class="col-md-4 col-sm-6 col-6" *ngFor="let item of horoscopos; index as i">
+            <div class="media" *ngIf="i == valor3">
+                <img src="../../../assets/img/Aries.png" width="90" height="90" alt="...">
                 <div class="media-body">
                     <div class="alert alert-primary" role="alert">
-                        <h5>Piscis</h5>
+                        <h5>{{item.name}}</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="media" *ngIf="i == valor4">
+                <img src="../../../assets/img/Tauro.png" width="90" height="90" alt="...">
+                <div class="media-body">
+                    <div class="alert alert-primary" role="alert">
+                        <h5>{{item.name}}</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="media" *ngIf="i == valor5">
+                <img src="../../../assets/img/Geminis.png" width="90" height="90" alt="...">
+                <div class="media-body">
+                    <div class="alert alert-primary" role="alert">
+                        <h5>{{item.name}}</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-6" *ngFor="let item of horoscopos; index as i">
+            <div class="media" *ngIf="i == valor6">
+                <img src="../../../assets/img/Cancer.png" width="90" height="90" alt="...">
+                <div class="media-body">
+                    <div class="alert alert-primary" role="alert">
+                        <h5>{{item.name}}</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="media" *ngIf="i == valor7">
+                <img src="../../../assets/img/Leo.png" width="90" height="90" alt="...">
+                <div class="media-body">
+                    <div class="alert alert-primary" role="alert">
+                        <h5>{{item.name}}</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="media" *ngIf="i == valor8">
+                <img src="../../../assets/img/Virgo.png" width="90" height="90" alt="...">
+                <div class="media-body">
+                    <div class="alert alert-primary" role="alert">
+                        <h5>{{item.name}}</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-6" *ngFor="let item of horoscopos; index as i">
+            <div class="media" *ngIf="i == valor9">
+                <img src="../../../assets/img/Libra.png" width="90" height="90" alt="...">
+                <div class="media-body">
+                    <div class="alert alert-primary" role="alert">
+                        <h5>{{item.name}}</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="media" *ngIf="i == valor10">
+                <img src="../../../assets/img/Escorpion.png" width="90" height="90" alt="...">
+                <div class="media-body">
+                    <div class="alert alert-primary" role="alert">
+                        <h5>{{item.name}}</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="media" *ngIf="i == valor11">
+                <img src="../../../assets/img/Sagitario.png" width="90" height="90" alt="...">
+                <div class="media-body">
+                    <div class="alert alert-primary" role="alert">
+                        <h5>{{item.name}}</h5>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <section class="row container m-auto p-2 col-md-12">
-        <div class="card mb-12 border-info cuerpo-Card">
+    <section class="row container m-auto p-2 col-md-12" *ngFor="let item of horoscopos; index as i">
+        <div class="card mb-8 border-info cuerpo-Card m-auto" *ngIf="i == valor3">
             <div class="row no-gutters">
                 <div class="col-md-4">
                     <img src="../../../assets/img/Aries.png" width="80" height="150" class="card-img" alt="...">
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-title">Aries</h5>
+                        <h5 class="card-title text-black-50">{{item.name}}</h5>
                         <p class="card-text">Dejas atrás esa sensación de tristeza; llegan noticias que
                             favorables que te llenarán de esperanza. Tus sospechas son ciertas, esa persona
                             se está distanciando y es por tu falta de atención.</p>
+                        <span class="col-lg-12 bg-primary card-footer text-white-50">{{item.start_date}} a
+                            {{item.end_date}}</span>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="card mb-12 border-info p-1 cuerpo-Card">
+        <div class="card mb-8 border-info p-1 cuerpo-Card m-auto" *ngIf="i == valor4">
             <div class="row no-gutters">
                 <div class="col-md-4">
                     <img src="../../../assets/img/Tauro.png" width="80" height="150" class="card-img" alt="...">
                 </div>
                 <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title">Tauro</h5>
+                    <div class="card-body text-black-50">
+                        <h5 class="card-title">{{item.name}}</h5>
                         <p class="card-text">Cuidado con distracciones, podrías extraviar o perder algo de
                             sumo valor. En lo sentimental, evita lucubrar sin bases ni fundamento y busca a
                             esa persona para aclarar todas tus dudas.</p>
+                        <span class="col-lg-12 bg-primary card-footer text-white-50">{{item.start_date}} a
+                            {{item.end_date}}</span>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="card mb-12 border-info p-1 cuerpo-Card">
+        <div class="card mb-8 border-info p-1 cuerpo-Card m-auto" *ngIf="i == valor5">
             <div class="row no-gutters">
                 <div class="col-md-4">
                     <img src="../../../assets/img/Geminis.png" width="80" height="150" class="card-img" alt="...">
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-title">Geminis</h5>
+                        <h5 class="card-title text-black-50">{{item.name}}</h5>
                         <p class="card-text">Estarías distrayéndote en una actividad ajena a tu labor y
                             podrías generar retrasos que afecten a terceros, cuidado. En lo personal, no te
                             conviene devolver las heridas que sientes te han hecho.</p>
+                        <span class="col-lg-12 bg-primary card-footer text-white-50">{{item.start_date}} a
+                            {{item.end_date}}</span>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="card mb-12 border-info p-1 cuerpo-Card">
+        <div class="card mb-8 border-info p-1 cuerpo-Card m-auto" *ngIf="i == valor6">
             <div class="row no-gutters">
                 <div class="col-md-4">
                     <img src="../../../assets/img/Cancer.png" width="80" height="150" class="card-img" alt="...">
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-title">Cancer</h5>
+                        <h5 class="card-title text-black-50">{{item.name}}</h5>
                         <p class="card-text">En lo laboral, no te presiones a tomar decisiones sobre el
                             camino a tomar ya que las cosas no se presentan muy claras, paciencia. Habrá un
                             momento de soledad que te permitirá reflexionar.</p>
+                        <span class="col-lg-12 bg-primary card-footer text-white-50">{{item.start_date}} a
+                            {{item.end_date}}</span>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="card mb-12 border-info p-1 cuerpo-Card">
+        <div class="card mb-8 border-info p-1 cuerpo-Card m-auto" *ngIf="i == valor7">
             <div class="row no-gutters">
                 <div class="col-md-4">
                     <img src="../../../assets/img/Leo.png" width="80" height="150" class="card-img" alt="...">
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-title">Leo</h5>
+                        <h5 class="card-title text-black-50">{{item.name}}</h5>
                         <p class="card-text">Es posible que surjan discrepancias con una persona que no está
                             de acuerdo con la forma en la que desarrollas tu labor. En el amor, si muestras
                             mayor disposición al diálogo las cosas se aclararan.</p>
+                        <span class="col-lg-12 bg-primary card-footer text-white-50">{{item.start_date}} a
+                            {{item.end_date}}</span>
                     </div>
                 </div>
             </div>

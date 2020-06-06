@@ -7,10 +7,11 @@ import { AppComponent } from './app.component';
 import { HoroscopoComponent } from './components/horoscopo/horoscopo.component';
 import { EstadisticasComponent } from './components/estadisticas/estadisticas.component';
 import { NoticiasComponent } from './components/noticias/noticias.component';
-import { DeportesComponent } from './components/deportes/deportes.component';
 import { CotizacionComponent } from './components/cotizacion/cotizacion.component';
 import { HttpClientModule } from '@angular/common/http'
-import { FormsModule } from '@angular/forms'
+import { FormsModule } from '@angular/forms';
+import { MoviesComponent } from './components/movies/movies.component';
+import { UrlPipe } from './pipes/url.pipe'
 
 @NgModule({
   declarations: [
@@ -20,8 +21,9 @@ import { FormsModule } from '@angular/forms'
     HoroscopoComponent,
     EstadisticasComponent,
     NoticiasComponent,
-    DeportesComponent,
-    CotizacionComponent
+    CotizacionComponent,
+    MoviesComponent,
+    UrlPipe
   ],
   imports: [
     BrowserModule,
